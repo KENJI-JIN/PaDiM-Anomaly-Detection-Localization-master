@@ -6,6 +6,9 @@ This code is heavily borrowed from both SPADE-pytorch(https://github.com/byungja
     <img src="imgs/pic1.png" width="1000"\>
 </p>
 
+## Usage
+python main.py
+
 ## Requirement
 * python == 3.7
 * pytorch == 1.5
