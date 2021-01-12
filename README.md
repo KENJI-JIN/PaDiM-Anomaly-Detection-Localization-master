@@ -15,7 +15,8 @@ This code is heavily borrowed from both SPADE-pytorch(https://github.com/byungja
 * matplotlib
 
 ## Usage
-python main.py
+To test PaDiM on MVTec AD datasets, just type the following code on the command line
+`python main.py`
 
 
 ## Datasets
