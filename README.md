@@ -6,8 +6,6 @@ This code is heavily borrowed from both SPADE-pytorch(https://github.com/byungja
     <img src="imgs/pic1.png" width="1000"\>
 </p>
 
-## Usage
-python main.py
 
 ## Requirement
 * python == 3.7
@@ -15,6 +13,10 @@ python main.py
 * tqdm
 * sklearn
 * matplotlib
+
+## Usage
+python main.py
+
 
 ## Datasets
 MVTec AD datasets : Download from [MVTec website](https://www.mvtec.com/company/research/datasets/mvtec-ad/)
