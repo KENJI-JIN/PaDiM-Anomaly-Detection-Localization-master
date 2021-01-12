@@ -15,13 +15,14 @@ This code is heavily borrowed from both SPADE-pytorch(https://github.com/byungja
 * matplotlib
 
 ## Usage
-To test PaDiM on MVTec AD datasets, just type the following code on the command line
+To test PaDiM on MVTec AD datasets, just type the following code on the command line  
 `python main.py`
 
 
 ## Datasets
-MVTec AD datasets : Download from [MVTec website](https://www.mvtec.com/company/research/datasets/mvtec-ad/)
-
+MVTec AD datasets : Download from [MVTec website](https://www.mvtec.com/company/research/datasets/mvtec-ad/)  
+Unzip the filea and rename the folder name to `mvtec_anomaly_detection`.  
+Move the folder to `datasets/mvtec_anomaly_detection`.  
 
 ## Results
 ### Implementation results on MVTec
