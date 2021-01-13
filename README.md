@@ -31,6 +31,7 @@ Move the folder to `dataset/input_data`.
 
 
 It is assumed that the folder hierarchy is as follows.  
+<div>
 input_data/<br>
   ├ class_name1<br>
   │&emsp;├ train/<br>
@@ -44,6 +45,7 @@ input_data/<br>
   │&emsp;&emsp;└ anomal_class2/<br>
   └ class_name2/<br>
        *the folder hierarchy of class_name2 is the same as class_name1.
+</div>
 
 *If the above explanation is difficult to understand, please refer to the folder hierarchy of MCTec Dataset.
 
