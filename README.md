@@ -30,7 +30,7 @@ Oridinal datasets:
 Move the folder to `dataset/input_data`. 
 
 
-It is assumed that the folder hierarchy is as follows.
+It is assumed that the folder hierarchy is as follows.  
 input_data/  
 　├ class_name1  
   │   ├ train/  
