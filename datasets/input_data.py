@@ -10,13 +10,11 @@ from torchvision import transforms as T
 
 
 # URL = 'ftp://guest:GU.205dldo@ftp.softronics.ch/mvtec_anomaly_detection/mvtec_anomaly_detection.tar.xz'
-CLASS_NAMES = ['bottle', 'cable', 'capsule', 'carpet', 'grid',
-               'hazelnut', 'leather', 'metal_nut', 'pill', 'screw',
-               'tile', 'toothbrush', 'transistor', 'wood', 'zipper']
+# the class names & the folder names with input_data
+CLASS_NAMES = ['bottle', 'cable']
 
-
-class MVTecDataset(Dataset):
-    def __init__(self, dataset_path='mvtec_anomaly_detection', class_name='bottle', is_train=True,
+class Original_Dataset(Dataset):
+    def __init__(self, dataset_path, class_name, is_train=True,
                  resize=256, cropsize=224):
         assert class_name in CLASS_NAMES, 'class_name: {}, should be in {}'.format(class_name, CLASS_NAMES)
         self.dataset_path = dataset_path
