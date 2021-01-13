@@ -46,6 +46,7 @@ input_data/<br>
 &emsp;└ class_name2/<br>
 &emsp;&emsp;*the folder hierarchy of class_name2 is the same as class_name1.
 
+*The number of class and the number of anomal_class is not limeted. (In the above, two types of each class are described for example.)
 *If the above explanation is difficult to understand, please refer to the folder hierarchy of MCTec Dataset.
 
 ## Results
