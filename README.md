@@ -33,15 +33,15 @@ Move the folder to `dataset/input_data`.
 It is assumed that the folder hierarchy is as follows.  
 input_data/<br>
   ├ class_name1<br>
-  │   ├ train/<br>
-  │   │   └ good/<br>
-  │   ├ test/<br>
-  │   │   ├ good/<br>
-  │   │   ├ anomal_class1/<br>
-  │   │   └ anomal_class2/<br>
-  │   └ ground_truth/<br>
-  │       ├ anomal_class1/<br>
-  │       └ anomal_class2/<br>
+  │    ├ train/<br>
+  │    │    └ good/<br>
+  │    ├ test/<br>
+  │    │    ├ good/<br>
+  │    │    ├ anomal_class1/<br>
+  │    │    └ anomal_class2/<br>
+  │    └ ground_truth/<br>
+  │        ├ anomal_class1/<br>
+  │        └ anomal_class2/<br>
   └ class_name2/<br>
        *the folder hierarchy of class_name2 is the same as class_name1.
 
