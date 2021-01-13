@@ -31,21 +31,20 @@ Move the folder to `dataset/input_data`.
 
 
 It is assumed that the folder hierarchy is as follows.  
-<div>
+
 input_data/<br>
-  ├ class_name1<br>
-  │&emsp;├ train/<br>
-  │&emsp;│&emsp;└ good/<br>
-  │&emsp;├ test/<br>
-  │&emsp;│&emsp;├ good/<br>
-  │&emsp;│&emsp;├ anomal_class1/<br>
-  │&emsp;│&emsp;└ anomal_class2/<br>
-  │&emsp;└ ground_truth/<br>
-  │&emsp;&emsp;├ anomal_class1/<br>
-  │&emsp;&emsp;└ anomal_class2/<br>
-  └ class_name2/<br>
-       *the folder hierarchy of class_name2 is the same as class_name1.
-</div>
+&emsp;├ class_name1<br>
+&emsp;│&emsp;├ train/<br>
+&emsp;│&emsp;│&emsp;└ good/<br>
+&emsp;│&emsp;├ test/<br>
+&emsp;│&emsp;│&emsp;├ good/<br>
+&emsp;│&emsp;│&emsp;├ anomal_class1/<br>
+&emsp;│&emsp;│&emsp;└ anomal_class2/<br>
+&emsp;│&emsp;└ ground_truth/<br>
+&emsp;│&emsp;&emsp;├ anomal_class1/<br>
+&emsp;│&emsp;&emsp;└ anomal_class2/<br>
+&emsp;└ class_name2/<br>
+&emsp;&emsp;*the folder hierarchy of class_name2 is the same as class_name1.
 
 *If the above explanation is difficult to understand, please refer to the folder hierarchy of MCTec Dataset.
 
