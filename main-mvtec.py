@@ -21,7 +21,7 @@ import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision.models import wide_resnet50_2, resnet18
-import datasets.input_data as input_data
+import datasets.mvtec as mvtec
 
 
 # device setup
@@ -31,9 +31,9 @@ device = torch.device('cuda' if use_cuda else 'cpu')
 
 def parse_args():
     parser = argparse.ArgumentParser('PaDiM')
-    parser.add_argument('--data_path', type=str, default='datasets/input_data', help="the folder with input data")
-    parser.add_argument('--save_path', type=str, default='./result_data', help="the folder to save data")
-    parser.add_argument('--arch', type=str, choices=['resnet18', 'wide_resnet50_2'], default='wide_resnet50_2', help="the NN architecture to use")
+    parser.add_argument('--data_path', type=str, default='datasets/mvtec_anomaly_detection')
+    parser.add_argument('--save_path', type=str, default='./mvtec_result')
+    parser.add_argument('--arch', type=str, choices=['resnet18', 'wide_resnet50_2'], default='wide_resnet50_2')
     return parser.parse_args()
 
 
@@ -77,11 +77,11 @@ def main():
     total_roc_auc = []
     total_pixel_roc_auc = []
 
-    for class_name in input_data.CLASS_NAMES:
+    for class_name in mvtec.CLASS_NAMES:
 
-        train_dataset = input_data.Original_Dataset(args.data_path, class_name=class_name, is_train=True)
+        train_dataset = mvtec.MVTecDataset(args.data_path, class_name=class_name, is_train=True)
         train_dataloader = DataLoader(train_dataset, batch_size=32, pin_memory=True)
-        test_dataset = input_data.Original_Dataset(args.data_path, class_name=class_name, is_train=False)
+        test_dataset = mvtec.MVTecDataset(args.data_path, class_name=class_name, is_train=False)
         test_dataloader = DataLoader(test_dataset, batch_size=32, pin_memory=True)
 
         train_outputs = OrderedDict([('layer1', []), ('layer2', []), ('layer3', [])])
@@ -127,16 +127,12 @@ def main():
             with open(train_feature_filepath, 'rb') as f:
                 train_outputs = pickle.load(f)
 
-        # the labels to judge whether it is normal or abnormal (0 or 1)
         gt_list = []
-        # the ground truth images
         gt_mask_list = []
-        # the test images
         test_imgs = []
 
         # extract test set features
         for (x, y, mask) in tqdm(test_dataloader, '| feature extraction | test | %s |' % class_name):
-            # make lists after converting to numpy
             test_imgs.extend(x.cpu().detach().numpy())
             gt_list.extend(y.cpu().detach().numpy())
             gt_mask_list.extend(mask.cpu().detach().numpy())
@@ -186,7 +182,6 @@ def main():
         scores = (score_map - min_score) / (max_score - min_score)
         
         # calculate image-level ROC AUC score
-        # Use maximum values as an image scores
         img_scores = scores.reshape(scores.shape[0], -1).max(axis=1)
         gt_list = np.asarray(gt_list)
         fpr, tpr, _ = roc_curve(gt_list, img_scores)
@@ -195,7 +190,7 @@ def main():
         print('image ROCAUC: %.3f' % (img_roc_auc))
         fig_img_rocauc.plot(fpr, tpr, label='%s img_ROCAUC: %.3f' % (class_name, img_roc_auc))
         
-        # get the optimal threshold that maximizes f1 score to visualize the anomaly part
+        # get optimal threshold
         gt_mask = np.asarray(gt_mask_list)
         precision, recall, thresholds = precision_recall_curve(gt_mask.flatten(), scores.flatten())
         a = 2 * precision * recall
