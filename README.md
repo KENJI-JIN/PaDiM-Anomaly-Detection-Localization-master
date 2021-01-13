@@ -29,6 +29,24 @@ Move the folder to `datasets/mvtec_anomaly_detection`.
 Oridinal datasets:  
 Move the folder to `dataset/input_data`. 
 
+
+It is assumed that the folder hierarchy is as follows.
+input_data/
+　├ class_name1
+  │   ├ train/
+  │   │   └ good/
+  │   ├ test/
+  │   │   ├ good/
+  │   │   ├ anomal_class1/
+  │   │   └ anomal_class2/
+  │   └ ground_truth/
+  │       ├ anomal_class1/
+  │       └ anomal_class2/
+  └ class_name2/
+       *the folder hierarchy of class_name2 is the same as class_name1.
+
+*If the above explanation is difficult to understand, please refer to the folder hierarchy of MCTec Dataset.
+
 ## Results
 ### Implementation results on MVTec
 * Image-level anomaly detection accuracy (ROCAUC)
