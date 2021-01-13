@@ -18,7 +18,7 @@ This code is heavily borrowed from both SPADE-pytorch(https://github.com/byungja
 To test PaDiM on MVTec AD datasets, just type the following code on the command line  
 `python main-mvtec.py`
 
-To test your original datasets, type the following code on the command line after moving your datasets to `dataset/input_data`.
+To test your original datasets, type the following code on the command line after moving your datasets to `dataset/input_data`.  
 `python main.py`
 
 ## Datasets
@@ -26,7 +26,7 @@ MVTec AD datasets : Download from [MVTec website](https://www.mvtec.com/company/
 Unzip the filea and rename the folder name to `mvtec_anomaly_detection`.  
 Move the folder to `datasets/mvtec_anomaly_detection`.  
 
-Oridinal Dataset
+Oridinal datasets:  
 Move the folder to `dataset/input_data`. 
 
 ## Results
